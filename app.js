@@ -2,16 +2,13 @@
    function useState(initialVal) {
         let state = initialVal ; 
     
-        function returnState(){
-            return state
-        }
         function setState(newVal){
             if (newVal !== state){
                 state = newVal
                 render(state)
             }
         }
-        return [returnState, setState]
+        return [state, setState]
     }
 
 
@@ -26,7 +23,7 @@
     
        
         function handleClick(e){ 
-            setState(state() + 1)
+            setState(state + 1)
             button.removeEventListener('click', handleClick)
         }
      
@@ -44,7 +41,7 @@
 
     function render(newState){
         const DOMTree = Component(newState)
-        DOMTree.JSXelement.reference.innerHTML = DOMTree.JSXelement.content()
+        DOMTree.JSXelement.reference.innerHTML = DOMTree.JSXelement.content
     }
 
    render()
